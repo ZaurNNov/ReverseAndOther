@@ -43,9 +43,6 @@
 - (IBAction)reverseButtonAction:(UIButton *)sender {
     [self checkTextField];
     
-//    NSString *result = [self reverseString:self.textField.text];
-//    self.resultLabel.text = result;
-    
     self.resultLabel.text = [self reverseString:self.textField.text];
 }
 
@@ -120,8 +117,27 @@
 
 -(NSString *)checkPolindrom:(NSString *)originalStr {
     
-    
-    return originalStr;
+    if ([self isPalindromeStr:originalStr]) {
+        return @"Это палиндром";
+    } else {
+        return @"Это не палиндром";
+    }
+}
+
+-(BOOL)isPalindromeStr:(NSString *)originalStr {
+    NSString *preparedStr = [self stringWithoutStartAndEndSpases:originalStr];
+    NSString *lowwerCase = preparedStr.lowercaseString;
+    NSString *withoutSpases = [self stringWithoutSpases:lowwerCase];
+    // так же как реверс массива, сравниваем символы первый и последний
+    // для этого мы делим пополам строку/массив и начинаем сравнение
+    NSInteger len = withoutSpases.length; // длинна
+    for (NSInteger i = 0; i < len/2; i++) {
+        unichar temp = (unichar *)[withoutSpases characterAtIndex:i];
+        if (temp != [withoutSpases characterAtIndex:len-i-1]) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 
