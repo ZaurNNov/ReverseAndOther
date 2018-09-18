@@ -12,6 +12,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
+
+// temp
+@property (weak, nonatomic) IBOutlet UIButton *button3;
+@property (weak, nonatomic) IBOutlet UIButton *button4;
+@property (weak, nonatomic) IBOutlet UIButton *button5;
+
 @end
 
 @implementation ViewController
@@ -23,6 +29,11 @@
 
 -(void)startAction {
     self.textField.placeholder = @"введите сюда строку";
+    
+    // прячу не готовое
+//    self.button3.alpha = 0.0;
+//    self.button4.alpha = 0.0;
+    self.button5.alpha = 0.0;
 }
 
 - (IBAction)clearButtonAction:(UIButton *)sender {
@@ -54,10 +65,17 @@
 
 - (IBAction)summAllLettersButtonAction:(UIButton *)sender {
     [self checkTextField];
+    
+    NSString *prepareString= [self stringWitoutSpecialSymbols:self.textField.text];
+    NSString *result = [NSString stringWithFormat:@"Символов в строке: %lu", (unsigned long)prepareString.length];
+    
+    self.resultLabel.text = result;
 }
 
 - (IBAction)summAllSymbolsButtonAction:(UIButton *)sender {
     [self checkTextField];
+    NSString *result = [NSString stringWithFormat:@"Символов в строке: %lu", (unsigned long)self.textField.text.length];
+    self.resultLabel.text = result;
 }
 
 - (IBAction)delAllPhoneticALettersButtonAction:(UIButton *)sender {
@@ -93,6 +111,17 @@
 -(NSString *)stringWithoutSpases:(NSString *)originalStr {
     
     return [originalStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+}
+
+-(NSString *)stringWitoutSpecialSymbols: (NSString *)originalStr {
+    NSCharacterSet *letterCharacters = [NSCharacterSet letterCharacterSet];
+    NSCharacterSet *invertedSet = letterCharacters.invertedSet;
+    NSString *lettersAndDigitals = [originalStr stringByTrimmingCharactersInSet:invertedSet];
+    
+//    NSCharacterSet *symbolics = [NSCharacterSet symbolCharacterSet];
+//    NSCharacterSet *other = [NSCharacterSet chara]
+
+    return lettersAndDigitals;
 }
 
 // Обрезание пробелов в начале и конце строки
@@ -139,6 +168,5 @@
     }
     return YES;
 }
-
 
 @end

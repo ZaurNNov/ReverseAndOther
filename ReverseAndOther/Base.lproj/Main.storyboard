@@ -32,38 +32,38 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no"/>
                             </textField>
                             <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sxh-3o-Kgr">
-                                <rect key="frame" x="95" y="118" width="184" height="182"/>
+                                <rect key="frame" x="79" y="118.5" width="216" height="182"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFw-oT-wtg">
-                                        <rect key="frame" x="52.5" y="0.0" width="79" height="30"/>
+                                        <rect key="frame" x="68.5" y="0.0" width="79" height="30"/>
                                         <state key="normal" title="Переворот"/>
                                         <connections>
                                             <action selector="reverseButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="7cJ-Au-uie"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZp-An-DYh">
-                                        <rect key="frame" x="0.0" y="38" width="184" height="30"/>
+                                        <rect key="frame" x="16" y="38" width="184" height="30"/>
                                         <state key="normal" title="Проверить на полиндром"/>
                                         <connections>
                                             <action selector="checkPolindromButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="xXQ-Ul-nlN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4V-Zb-djg">
-                                        <rect key="frame" x="14.5" y="76" width="155" height="30"/>
-                                        <state key="normal" title="Посчитать все  буквы"/>
+                                        <rect key="frame" x="0.0" y="76" width="216" height="30"/>
+                                        <state key="normal" title="Посчитать все буквы и цифры"/>
                                         <connections>
                                             <action selector="summAllLettersButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="cQB-e4-Aar"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emD-2n-97P">
-                                        <rect key="frame" x="6" y="114" width="172" height="30"/>
+                                        <rect key="frame" x="22" y="114" width="172" height="30"/>
                                         <state key="normal" title="Посчитать все символы"/>
                                         <connections>
                                             <action selector="summAllSymbolsButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="TM5-RF-JVi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lY1-Cu-4ii">
-                                        <rect key="frame" x="21" y="152" width="142" height="30"/>
+                                        <rect key="frame" x="37" y="152" width="142" height="30"/>
                                         <state key="normal" title="Убрать все гласные"/>
                                         <connections>
                                             <action selector="delAllPhoneticALettersButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="nP1-ZZ-pKZ"/>
@@ -104,6 +104,9 @@
                         <viewLayoutGuide key="safeArea" id="haf-pL-EvR"/>
                     </view>
                     <connections>
+                        <outlet property="button3" destination="u4V-Zb-djg" id="h9E-yc-QV3"/>
+                        <outlet property="button4" destination="emD-2n-97P" id="rUN-JA-uaQ"/>
+                        <outlet property="button5" destination="lY1-Cu-4ii" id="Dbh-9R-8g0"/>
                         <outlet property="resultLabel" destination="ILY-ul-YNL" id="C6Q-UR-Dol"/>
                         <outlet property="textField" destination="KBo-Fz-xJn" id="Io6-qq-enI"/>
                     </connections>
