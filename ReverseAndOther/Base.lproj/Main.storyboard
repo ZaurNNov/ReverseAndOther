@@ -1,24 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fv0-lE-vXT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="A55-ga-Dxh">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="fv0-lE-vXT" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3SM-6w-xzr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите произвольную строку" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-PY-S7a">
+                                <rect key="frame" x="16" y="52" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="KBo-Fz-xJn">
+                                <rect key="frame" x="16" y="80.5" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.5568627451" green="0.64705882349999999" blue="0.65490196079999996" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sxh-3o-Kgr">
+                                <rect key="frame" x="95" y="118" width="184" height="182"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFw-oT-wtg">
+                                        <rect key="frame" x="52.5" y="0.0" width="79" height="30"/>
+                                        <state key="normal" title="Переворот"/>
+                                        <connections>
+                                            <action selector="reverseButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="7cJ-Au-uie"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZp-An-DYh">
+                                        <rect key="frame" x="0.0" y="38" width="184" height="30"/>
+                                        <state key="normal" title="Проверить на полиндром"/>
+                                        <connections>
+                                            <action selector="checkPolindromButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="xXQ-Ul-nlN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4V-Zb-djg">
+                                        <rect key="frame" x="14.5" y="76" width="155" height="30"/>
+                                        <state key="normal" title="Посчитать все  буквы"/>
+                                        <connections>
+                                            <action selector="summAllLettersButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="cQB-e4-Aar"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emD-2n-97P">
+                                        <rect key="frame" x="6" y="114" width="172" height="30"/>
+                                        <state key="normal" title="Посчитать все символы"/>
+                                        <connections>
+                                            <action selector="summAllSymbolsButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="TM5-RF-JVi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lY1-Cu-4ii">
+                                        <rect key="frame" x="21" y="152" width="142" height="30"/>
+                                        <state key="normal" title="Убрать все гласные"/>
+                                        <connections>
+                                            <action selector="delAllPhoneticALettersButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="nP1-ZZ-pKZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Результат" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILY-ul-YNL">
+                                <rect key="frame" x="16" y="323" width="343" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.87450980389999999" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC3-8k-jQX">
+                                <rect key="frame" x="116" y="371" width="143" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Очистить результат"/>
+                                <connections>
+                                    <action selector="clearButtonAction:" destination="fv0-lE-vXT" eventType="touchUpInside" id="dfR-RK-ugX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KBo-Fz-xJn" firstAttribute="leading" secondItem="haf-pL-EvR" secondAttribute="leading" constant="16" id="3fV-b7-Gaw"/>
+                            <constraint firstItem="haf-pL-EvR" firstAttribute="trailing" secondItem="wFb-PY-S7a" secondAttribute="trailing" constant="16" id="3pW-dk-VpZ"/>
+                            <constraint firstItem="sxh-3o-Kgr" firstAttribute="centerX" secondItem="3SM-6w-xzr" secondAttribute="centerX" id="5PQ-00-I94"/>
+                            <constraint firstItem="wFb-PY-S7a" firstAttribute="centerX" secondItem="3SM-6w-xzr" secondAttribute="centerX" id="Bds-B7-wds"/>
+                            <constraint firstItem="haf-pL-EvR" firstAttribute="trailing" secondItem="KBo-Fz-xJn" secondAttribute="trailing" constant="16" id="EG2-Cq-tbq"/>
+                            <constraint firstItem="KBo-Fz-xJn" firstAttribute="top" secondItem="wFb-PY-S7a" secondAttribute="bottom" constant="8" id="fgq-YT-xWt"/>
+                            <constraint firstItem="KBo-Fz-xJn" firstAttribute="top" secondItem="wFb-PY-S7a" secondAttribute="bottom" constant="8" id="sO5-cn-Nmf"/>
+                            <constraint firstItem="sxh-3o-Kgr" firstAttribute="top" secondItem="KBo-Fz-xJn" secondAttribute="bottom" constant="8" symbolic="YES" id="yF8-pU-7BX"/>
+                            <constraint firstItem="wFb-PY-S7a" firstAttribute="leading" secondItem="haf-pL-EvR" secondAttribute="leading" constant="16" id="yOu-8L-wDl"/>
+                            <constraint firstItem="wFb-PY-S7a" firstAttribute="top" secondItem="haf-pL-EvR" secondAttribute="top" constant="32" id="yhc-8v-ihz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="haf-pL-EvR"/>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="ILY-ul-YNL" id="C6Q-UR-Dol"/>
+                        <outlet property="textField" destination="KBo-Fz-xJn" id="Io6-qq-enI"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u2Z-aO-M5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="76" y="111.99400299850076"/>
         </scene>
     </scenes>
 </document>
