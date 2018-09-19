@@ -27,6 +27,7 @@
     [self startAction];
     
     [self checkArrayMoove]; // движение массива -> & <-
+    [self printFizzBuzz];   // вывод чисел + FizzBuzz
 }
 
 -(void)startAction {
@@ -256,6 +257,47 @@
     return mutArr;
 }
 
+-(void)printFizzBuzz {
+    // напечатать цифры по порядку от 1 до 100
+    // если цифра кратна 3 - то вывести "Fizz"
+    // если цифра кратна 5 - то вывести "Buzz"
+    // Когда цифра кратна 3 и 5 (например 15) - то вывести "FizzBuzz"
+    
+    [self fizzBuzzExample1];
+}
+
+-(void)fizzBuzzExample1 {
+    
+    printf("\nFizzBuzz Print (Example 1):\n");
+    int count = 100;
+    
+    for (int i = 1; i < count; i++) {
+        
+        if (!(i % 3 == 0) && !(i % 5 == 0)) {
+            // все числа которые не относятся к Fizz & Buzz
+            printf("%d\n", i);
+        } else {
+            // проверка на fizz + buzz
+            if ((i % 3 == 0) && (i % 5 == 0)) {
+                printf("FizzBuzz\n");
+            } else {
+                // проверка на fizz
+                if (i % 3 == 0) {
+                    printf("Fizz\n");
+                }
+                
+                // проверка на Buzz
+                if (i % 5 == 0) {
+                    printf("Buzz\n");
+                }
+            }
+        }
+    }
+}
+
+-(void)fizzBuzzExample2 {
+    
+}
 
 
 @end
