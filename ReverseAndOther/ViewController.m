@@ -25,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self startAction];
+    
+    [self checkArrayMoove]; // движение массива -> & <-
 }
 
 -(void)startAction {
@@ -168,5 +170,92 @@
     }
     return YES;
 }
+
+-(void)checkArrayMoove {
+    NSArray *arr = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
+    NSLog(@"arr: %@", arr);
+    NSArray *returnArrLeft = [self mooveArrayInLeft:2 fromIntArray:arr];
+    NSLog(@"returnArrLeft: %@", returnArrLeft);
+    NSArray *returnArrRight = [self mooveArrayInRight:2 fromIntArray:arr];
+    NSLog(@"returnArrRight: %@", returnArrRight);
+}
+
+-(NSArray *)mooveArrayInLeft:(NSInteger)countToMoove fromIntArray:(NSArray *)originArr {
+    
+    // временный изменяемый пустой массив
+    NSMutableArray *mutArr = [[NSMutableArray alloc] initWithArray:originArr];
+    
+    // Задача сместить массив влево на 3 позиции
+    // был [1.2.3.4.5.6.7.8.9] -> стал [3.4.5.6.7.8.9.1.2]
+    // решение - разделить массив на 2 части - первая часть это на сколько сдвинуть влево, каждую перевернуть затем перевернуть то что получится
+    // получится что первый кусок массива окажется перевернутым в конце массива
+    
+    NSInteger len = originArr.count;
+    NSInteger firstLen = countToMoove;
+    NSInteger secondLen = originArr.count - countToMoove;
+    
+    // реверс второй части
+    for (NSInteger k = 0; k < firstLen / 2; k++) {
+        id temp = mutArr[firstLen - k - 1];
+        mutArr[firstLen - k - 1] = mutArr[k];
+        mutArr[k] = temp;
+    }
+    
+    // реверс частей
+    for (NSInteger m = 0; m < secondLen / 2; m++) {
+        id temp = mutArr[len - m - 1];
+        mutArr[len - m - 1] = mutArr[firstLen + m];
+        mutArr[firstLen + m] = temp;
+    }
+    
+    // реверс всего массива
+    for (NSInteger i = 0; i < len/2; i++) {
+        id temp = mutArr[i];
+        mutArr[i] = mutArr[len - i - 1];
+        mutArr[len - i - 1] = temp;
+    }
+    
+    return mutArr;
+}
+
+-(NSArray *)mooveArrayInRight:(NSInteger)countToMoove fromIntArray:(NSArray *)originArr {
+
+    // временный изменяемый пустой массив
+    NSMutableArray *mutArr = [[NSMutableArray alloc] initWithArray:originArr];
+
+    // Задача сместить массив вправо на 2 позиции
+    // был [1.2.3.4.5.6.7.8.9] -> стал [8.9.1.2.3.4.5.6.7]
+    // решение - разделить массив на 2 части - первая часть это на сколько сдвинуть влево, каждую перевернуть затем перевернуть то что получится
+    // получится что первый кусок массива окажется перевернутым в конце массива
+
+    NSInteger len = originArr.count;
+    NSInteger firstLen = countToMoove;
+    NSInteger secondLen = originArr.count - countToMoove;
+
+    // реверс второй части
+    for (NSInteger k = 0; k < firstLen / 2; k++) {
+        id temp = mutArr[secondLen + k];
+        mutArr[secondLen + k] = mutArr[len - k - 1];
+        mutArr[len - k - 1] = temp;
+    }
+
+    // реверс частей
+    for (NSInteger m = 0; m < secondLen / 2; m++) {
+        id temp = mutArr[m];
+        mutArr[m] = mutArr[secondLen - m - 1];
+        mutArr[secondLen - m - 1] = temp;
+    }
+
+    // реверс всего массива
+    for (NSInteger i = 0; i < len/2; i++) {
+        id temp = mutArr[i];
+        mutArr[i] = mutArr[len - i - 1];
+        mutArr[len - i - 1] = temp;
+    }
+
+    return mutArr;
+}
+
+
 
 @end
